@@ -1,0 +1,56 @@
+{% extends 'HR/base.html' %}
+{% block body %}
+<section class="section" style="margin-top: 13em; margin-bottom: 10em;">
+    <h1 style="text-align: center;">My Application</h1>
+    <hr>
+    <form class="row g-3 mx-5">
+      <div class="col-md-6" style="font-size: large;">
+        <label for="inputname" class="form-label">Name</label>
+        <input type="email" class="form-control" value="{{user.name}}" readonly id="inputname" style="font-size: large;">
+      </div>
+      <div class="col-md-6" style="font-size: large;">
+        <label for="inputnumber" class="form-label">number</label>
+        <input type="email" class="form-control" value="{{user.mobile_no}}" readonly id="inputnumber" style="font-size: large;">
+      </div>
+      <div class="col-md-6" style="font-size: large;">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" value="{{user.email}}"readonly id="inputEmail4" style="font-size: large;">
+      </div>
+
+      <div class="col-12" style="font-size: large;">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="inputAddress"readonly value="{{user.Address}}" placeholder="1234 Main St" style="font-size: large;">
+      </div>
+      <div class="col-12" style="font-size: large;">
+        <label for="inputAddress2" class="form-label">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2"readonly value="{{user.Address2}}"  placeholder="Apartment, studio, or floor" style="font-size: large;">
+      </div>
+      <div class="col-md-6" style="font-size: large;">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity"readonly value="{{user.city}}"  style="font-size: large;">
+      </div>
+      <div class="col-md-4" style="font-size: large;">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" class="form-select" style="font-size: large;" disabled>
+          <option selected>{{user.state}}</option>
+          
+        </select>
+      </div>
+      <div class="col-md-2" style="font-size: large;">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" value="{{user.zip}}" readonly  id="inputZip" style="font-size: large;">
+      </div>
+      <div class="col-md-4" style="font-size: large;">
+        <label for="inputZip" class="form-label">Type</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="font-size: large;" disabled>
+          <option selected>{{user.job_type}}</option>
+         
+        </select>
+      </div>
+
+    </form>
+  </section>
+<hr>
+ 
+
+{% endblock body %}

@@ -1,0 +1,103 @@
+{% extends 'hod/base.html' %}
+{% block body %}
+<!-- header section ends -->
+<!-- section starting -->
+<section style="margin-top: 12em; margin-bottom: 600px;">
+    <h1 style="text-align: center;"> product </h1><hr>
+    <div class="gap-2" style="display: flex; justify-content: center;">
+        <button class="btn " type="button" style="font-size: large;"> <a href="{% url 'add_product' %}">add item</a></button>
+    </div>
+
+    <div class="container" style="font-size: large; margin-top: 2em;">
+        <div class="row">
+          <div class="col-2">
+            Sr. no.
+          </div>
+          <div class="col-2">
+            Name
+          </div>
+          <div class="col-2">
+            Cost
+          </div>
+          <div class="col-2">
+            Action
+          </div>
+        </div>
+
+      <div class="foodDetails" style="font-size: large;">
+        {% for p in p %}
+        <div class="row" id="row">
+          <div class="col-2">
+            {{forloop.counter}}
+          </div>
+          <div class="col-2"id="FMpronameadd">
+            {{p.name}}
+          </div>
+         
+          <div class="col-2"id="FMprotypeadd">
+            {{p.price}}
+          </div>
+          <div class="col-2">
+            <a href="{% url 'view_product_detail' p.id %}" aria-hidden="true" style="color:white;"
+                          title="Update Product">
+                            <i class="fa fa-eye"></i>
+                          </a>&nbsp&nbsp&nbsp
+                          <a href="{% url 'delete_product' p.id %}" style="color:white;" title="Delete Product"><i
+                            class="fa fa-trash" aria-hidden="true" onclick="return confirm('Are you sure you want to remove')"></a></i>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+</section>
+<!-- section ending -->
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <!-- <div class="box-container">
+
+        <div class="box" style="position: fixed; bottom: 200px; right: 75%;">
+            <h3> 'v mart ' <i class="fas fa-shopping-basket"></i> </h3>
+            <p> </p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box" style="position: fixed; bottom: 100px; right: 55%;">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91 2203200200 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91 88282822868 </a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> vmart@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400070 </a>
+        </div>
+
+        <div class="box" style="position: fixed; bottom: 60px; right: 37%;">
+            <h3>quick links</h3>
+            <a href="../admin/index.html" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="../admin/add-item.html" class="links"> <i class="fas fa-arrow-right"></i> add item </a>
+            <a href="../admin/edit-item.html" class="links"> <i class="fas fa-arrow-right"></i> edit item </a>
+            <a href="../admin/item-detail.html" class="links"> <i class="fas fa-arrow-right"></i> item details </a>
+            <a href="../admin/sales-detail.html" class="links"> <i class="fas fa-arrow-right"></i> sales details </a>
+        </div>
+
+        <div class="box" style="position: fixed; bottom: 80px; right: 11%;">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="your email" class="email">
+            <input type="submit" value="subscribe" class="btn">
+            <img src="../image/payment.png" class="payment-img" alt="">
+        </div>
+
+    </div>
+
+    </div>
+
+</section> -->
+
+<!-- footer section ends -->
+
+{% endblock body %}

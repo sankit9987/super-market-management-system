@@ -1,0 +1,42 @@
+{% extends 'hod/base.html' %}
+{% block body %}
+<section style="margin-top: 12em;">
+    <h1 style="text-align: center;">sales details</h1>
+            <hr>
+            <div class="container" style="font-size: large;">
+             <div class="padleft">
+               <div class="row">
+                 <div class="col-1">
+                    Sr. no.
+                  </div>
+                  <div class="col-2">
+                    Name
+                  </div>
+                  <div class="col-2">
+                    Customer no.  
+                  </div>
+                  <div class="col-2">
+                    Item  
+                  </div>
+                  <div class="col-2">
+                    cost  
+                  </div>
+                  
+                </div>
+                {% for p in p %}
+                <div class="row" id="row">
+                  <div class="col-1">{{forloop.counter}}
+                  </div>
+                  <div class="col-2">{{p.name}}
+                  </div>
+                  <div class="col-2">{{p.id}}
+                  </div>
+                  <div class="col-2">{{p.product.name}}
+                  </div>
+                  <div class="col-2">{{p.product.price}}
+                  </div>
+                </div>
+                {% endfor %}
+</section>
+
+{% endblock body %}

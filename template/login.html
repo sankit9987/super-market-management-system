@@ -1,0 +1,45 @@
+{% extends 'loginbase.html' %}
+
+{% block body %}
+    <div class="signin">
+        <div class="back-img">
+          <div class="sign-in-text">
+            <h2 class="active">Sign In</h2>
+          </div><!--/.sign-in-text-->
+          <div class="layer">
+          </div><!--/.layer-->
+          <p class="point">&#9650;</p>
+        </div><!--/.back-img-->
+        <div class="form-section">
+          {% if messages %}
+					<div id="alert" class="alert alert-success text-center" role="alert">
+					  {% for msg in messages %}
+					  <h6 class="alert-heading">{{msg}}</h6>
+					  {% endfor %}
+					</div>
+					{% endif %}
+            <form method="post" action="">
+              {% csrf_token %}
+                <!--Email-->
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <!--Password-->
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <a href="{% url 'register' %}" style="text-decoration: none; color: var(--orange);">Create account</a>
+
+                <button class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
+                  Sign In
+                </button><!--/button-->
+              </form>
+            
+        </div><!--/.form-section-->
+        <!-- create account -->
+        
+       
+     </div><!--/.signin-->
+     {% endblock body %}

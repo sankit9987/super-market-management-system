@@ -1,0 +1,36 @@
+{% extends 'hod/base.html' %}
+{% block body %}
+<section style="margin-top: 12em;">
+  <h1 style="text-align: center;">adding item</h1>
+  <hr>
+          <form class="row g-3 mx-5" action="" method='post' style="display: grid; place-items: center; margin-top: 3em; ">
+            {% csrf_token %}
+            <div class="col-md-6">
+              <input type="text" class="form-control FMproname" name="name" placeholder="Product Name"  style="font-size: large;">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control FMprocost" name="cost" Placeholder="Product Cost"  style="font-size: large;">
+            </div>
+            <div class="col-md-6">
+              <textarea class="form-control FMprotype" rows="5" cols="5" name="description" placeholder="Describe yourself here..."  style="font-size: large;">
+              </textarea>
+            </div>
+            <div class="col-6">
+              <input type="text" class="form-control FMprostock" name="stock" placeholder="Product Stock"  style="font-size: large;">
+            </div>
+            <div class="input-group">
+              <input type="file" class="form" name="image" id="inputGroupFile01" style="font-size: large; padding-left: 296px;">
+            </div>
+            <div class="col-6">
+              <button class="btn" style="font-size: large; color: white;background-color:  var(--orange);">Submit</button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- section end -->
+
+
+{% endblock body %}

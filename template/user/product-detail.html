@@ -1,0 +1,26 @@
+{% extends 'user/base.html' %}
+
+{% block body %}
+<section style="margin-top: 7em; font-size: large; margin-bottom: 3em;" >
+    <!-- <img src="" alt="product-image"> -->
+    <div class="swiper-slide box" style="display: flex;">
+        <img src="{{p.image.url}}" alt="product-image" style="min-height: 500px; min-width: 800px; background-color:var(--orange); " >
+        <div style="margin:2em">
+        <h1>{{p.name}}</h1>
+        <div class="stars" style="padding-bottom: 1em; color: var(--orange); margin-left: 1.5em;">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <h2>{{p.description}}</h2>
+        <div class="price" style="font-size:xx-large; margin-top: .5em;"> RS {{p.price}} /- kg </div>
+        <div style="display: grid; place-items: center; margin-top: 2em;">
+        <a href="{% url 'payment' p.id%}" class="btn" style="font-size: larger; align-items: center;">buy now</a>
+        </div>
+        </div>
+    </div>
+</section>
+<hr>
+{% endblock body %}
