@@ -5,7 +5,8 @@ from .models import *
 from django.contrib import messages
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    p = Product.objects.all()
+    return render(request, "index.html",{'p':p})
 
 @login_required(login_url='login')
 def user_logout(request):
@@ -21,11 +22,11 @@ def Login(request):
             if user:
                 login(request, user)
                 if request.user.is_hr:
-                    return redirect("view_application")
-                elif request.user.is_staff:
-                    return redirect("item_to_pack")
+                    return redirect("application")
                 elif request.user.is_superuser:
                     return redirect("admin_index")
+                elif request.user.is_staff:
+                    return redirect("item_to_pack")
                 else:
                     return redirect("user_index")
             else:
@@ -50,14 +51,14 @@ def register(request):
             address2 = request.POST['address2']
             city = request.POST['city']
             state = request.POST['state']
-            user = User.objects.get(email=email)
+            user = User.objects.filter(email=email)
             if user:
                 messages.error(request, "User already exits!!!")
             else:
                 u = User.objects.create_user(email=email, password=password,mobile_no=number,state=state,zip=zip,name=name,Address=address,Address2=address2,city=city)
                 u.is_user = True
                 u.save()
-                return redirect("index")
+                return redirect("login")
         return render(request, "registration.html")
     else:
         return redirect("index")
@@ -167,7 +168,7 @@ def add_product(request):
             name = request.POST['name']
             description = request.POST['description']
             stock = request.POST['stock']
-            image = request.POST['image']
+            image = request.FILES['image']
             cost = request.POST['cost']
             Product.objects.create(name=name,description=description,image=image,price=cost)
             return redirect("view_product")

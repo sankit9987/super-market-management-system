@@ -25,13 +25,12 @@
     <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> 'v'Mart </a>
 
     <nav class="navbar">
-        <a href="../Employee/items-to-pack.html">home</a>
-        <a href="../Employee/application.html">my application</a>
+        <a href="{% url 'user_index' %}">home</a>
     </nav>
 
     <div >
       <div class="fas fa-bars" id="menu-btn"></div>
-      <div style="font-size: large;"><a href="../index.html">logout</a></div>
+      <div style="font-size: large;"><a href="{% url 'user_logout' %}">logout</a></div>
   </div>
 
     <form action="" class="search-form">

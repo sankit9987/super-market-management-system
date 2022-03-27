@@ -3,7 +3,7 @@
 <section style="margin-top: 12em;">
   <h1 style="text-align: center;">adding item</h1>
   <hr>
-          <form class="row g-3 mx-5" action="" method='post' style="display: grid; place-items: center; margin-top: 3em; ">
+          <form class="row g-3 mx-5" action="" method='post' style="display: grid; place-items: center; margin-top: 3em; " enctype="multipart/form-data">
             {% csrf_token %}
             <div class="col-md-6">
               <input type="text" class="form-control FMproname" name="name" placeholder="Product Name"  style="font-size: large;">

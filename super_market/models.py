@@ -44,11 +44,11 @@ class User(AbstractUser):
     job_type = models.CharField(max_length=100,null=True)
     experience = models.CharField(max_length=100,null=True)
     
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
-    is_user = models.BooleanField(default=False)
-    is_hr = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)#done
+    is_staff = models.BooleanField(default=False)#done
+    is_superuser = models.BooleanField(default=False)#done
+    is_user = models.BooleanField(default=False)#done
+    is_hr = models.BooleanField(default=False)#done
     is_biller = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Responsive Grocery Website Design Tutorial</title>
 
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,8 +24,7 @@
     <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> 'v'Mart </a>
 
     <nav class="navbar">
-        <a href="../Employee/items-to-pack.html">home</a>
-        <a href="../Employee/application.html">my application</a>
+        <a href="{% url 'user_index' %}">home</a>
     </nav>
 
     <div >
