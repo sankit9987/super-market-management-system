@@ -5,8 +5,11 @@ from .models import *
 from django.contrib import messages
 # Create your views here.
 def index(request):
-    p = Product.objects.all()
-    return render(request, "index.html",{'p':p})
+    if not request.user.is_authenticated:
+        p = Product.objects.all()
+        return render(request, "index.html",{'p':p})
+    else:
+        return redirect("user_index")
 
 @login_required(login_url='login')
 def user_logout(request):
@@ -72,8 +75,16 @@ def user_index(request):
 
 @login_required(login_url='login')
 def cart(request):
-    return render(request, "user/add-to-cart.html")
+    c =Cart.objects.filter(user=request.user)
+    return render(request, "user/add-to-cart.html",{'c':c})
 
+@login_required(login_url='login')
+def ucart(request):
+    if request.method=="POST":
+        p = request.POST['p']
+        p = Product.objects.get(id=p)
+        Cart.objects.create(user=request.user,product=p)
+        return redirect("user_index")
 
 @login_required(login_url='login')
 def employee(request):

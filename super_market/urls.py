@@ -14,6 +14,7 @@ urlpatterns = [
     path('user/register/employee', views.employee,name="employee"),
     path('product-detail/<int:id>', views.product,name="product"),
     path('payment:<int:id>', views.payment,name="payment"),
+    path('cart', views.ucart,name="ucart"),
 
     #HR
     path('hr/view-application/<int:id>', views.view_application,name="view_application"),
